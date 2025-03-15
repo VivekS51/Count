@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Countdown</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- CountDown Starts -->
+
+    <div class="countdown">
+        <div class="container">
+            <h1>Happy Birth Day</h1>
+
+            <div class="content-box-container">
+                <div class="content-box">
+                    <h2 id="day" class="counter"></h2>
+                    <p class="caption">Day</p>
+                </div>
+                <div class="content-box">
+                    <h2 id="hour" class="counter"></h2>
+                    <p class="caption">Hours</p>
+                </div>
+                <div class="content-box">
+                    <h2 id="minute" class="counter"></h2>
+                    <p class="caption">minutes</p>
+                </div>
+                <div class="content-box">
+                    <h2 id="second" class="counter"></h2>
+                    <p class="caption">Seconds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var targetDate = new Date('Dec 13, 2025 00:00:00').getTime();
+
+        function newYear(){
+            var current = new Date().getTime();
+            difference = targetDate - current;
+            var second = 1000;
+            var minute = second * 60;
+            var hour = minute * 60;
+            var day = hour * 24;
+
+            var d = Math.floor(difference / (day));
+            var h = Math.floor((difference % (day)) / (hour));
+            var m = Math.floor((difference % (hour)) / (minute));
+            var s = Math.floor((difference % (minute)) / (second));
+
+
+            // Assigning Elements
+
+            document.getElementById('day').innerHTML = d;
+            document.getElementById('hour').innerHTML = h;
+            document.getElementById('minute').innerHTML = m;
+            document.getElementById('second').innerHTML = s;
+
+        }
+        setInterval(function(){
+            newYear();
+        }, 1000)
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
